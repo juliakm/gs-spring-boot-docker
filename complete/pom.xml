@@ -16,11 +16,11 @@
         <version>2.3.0.RELEASE</version>
         <relativePath />
     </parent>
-
-    <properties>
-        <docker.image.prefix>springio</docker.image.prefix>
-        <java.version>1.8</java.version>
-    </properties>
+<properties>
+   <docker.image.prefix>javacontaineracr.azurecr.io</docker.image.prefix>
+   <java.version>1.8</java.version>
+   <jib-maven-plugin.version>2.2.0</jib-maven-plugin.version>
+</properties>
 
     <build>
         <plugins>
@@ -28,6 +28,20 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+            <artifactId>jib-maven-plugin</artifactId>
+            <groupId>com.google.cloud.tools</groupId>
+            <version>${jib-maven-plugin.version}</version>
+            <configuration>
+                <from>
+                    <image>mcr.microsoft.com/java/jdk:8-zulu-alpine</image>
+                </from>
+                <to>
+                    <image>${docker.image.prefix}/${project.artifactId}</image>
+                </to>
+            </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
